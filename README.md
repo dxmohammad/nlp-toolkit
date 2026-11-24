@@ -1,8 +1,11 @@
 # NLP Toolkit
 
-A Python toolkit for Natural Language Processing (NLP), providing reusable functions for common text preprocessing, linguistic analysis, and text vectorization tasks.
+A modular Python toolkit for Natural Language Processing (NLP), providing reusable functions for common text preprocessing, linguistic analysis, and text vectorization tasks.
 
 The project is designed with a modular structure, allowing developers to use individual NLP functions or combine them into a complete text-processing pipeline.
+
+**PyPI:** [dxmohammad-nlp-toolkit](https://pypi.org/project/dxmohammad-nlp-toolkit/)
+**GitHub:** [nlp-toolkit](https://github.com/dxmohammad/nlp-toolkit)
 
 ## Features
 
@@ -10,7 +13,7 @@ The toolkit currently includes 11 modules:
 
 | Module | Description |
 |---|---|
-| `cleaning` | Removes punctuation, numbers, and unnecessary characters |
+| `cleaning` | Provides text-cleaning operations for punctuation and unwanted characters |
 | `normalization` | Normalizes text and whitespace |
 | `tokenization` | Splits text into individual words |
 | `stopwords` | Removes stopwords while preserving negation words |
@@ -26,42 +29,42 @@ The toolkit currently includes 11 modules:
 
 ```text
 nlp-toolkit/
-│
-├── nlp_toolkit/
-│   ├── __init__.py
-│   ├── _nltk.py
-│   ├── _spacy.py
-│   ├── cleaning.py
-│   ├── normalization.py
-│   ├── tokenization.py
-│   ├── stopwords.py
-│   ├── stemming.py
-│   ├── lemmatization.py
-│   ├── pos_tagging.py
-│   ├── ner.py
-│   ├── sentence_tokenization.py
-│   ├── vectorization.py
-│   └── nlp_pipeline.py
-│
-├── tests/
-│   ├── test_cleaning.py
-│   ├── test_lemmatization.py
-│   ├── test_ner.py
-│   ├── test_nlp_pipeline.py
-│   ├── test_nltk_resources.py
-│   ├── test_normalization.py
-│   ├── test_pos_tagging.py
-│   ├── test_sentence_tokenization.py
-│   ├── test_stemming.py
-│   ├── test_stopwords.py
-│   ├── test_tokenization.py
-│   └── test_vectorization.py
-│
-├── .gitignore
-├── LICENSE
-├── README.md
-├── pyproject.toml
-└── requirements.txt
+â”‚
+â”œâ”€â”€ nlp_toolkit/
+â”‚   â”œâ”€â”€ __init__.py
+â”‚   â”œâ”€â”€ _nltk.py
+â”‚   â”œâ”€â”€ _spacy.py
+â”‚   â”œâ”€â”€ cleaning.py
+â”‚   â”œâ”€â”€ normalization.py
+â”‚   â”œâ”€â”€ tokenization.py
+â”‚   â”œâ”€â”€ stopwords.py
+â”‚   â”œâ”€â”€ stemming.py
+â”‚   â”œâ”€â”€ lemmatization.py
+â”‚   â”œâ”€â”€ pos_tagging.py
+â”‚   â”œâ”€â”€ ner.py
+â”‚   â”œâ”€â”€ sentence_tokenization.py
+â”‚   â”œâ”€â”€ vectorization.py
+â”‚   â””â”€â”€ nlp_pipeline.py
+â”‚
+â”œâ”€â”€ tests/
+â”‚   â”œâ”€â”€ test_cleaning.py
+â”‚   â”œâ”€â”€ test_lemmatization.py
+â”‚   â”œâ”€â”€ test_ner.py
+â”‚   â”œâ”€â”€ test_nlp_pipeline.py
+â”‚   â”œâ”€â”€ test_nltk_resources.py
+â”‚   â”œâ”€â”€ test_normalization.py
+â”‚   â”œâ”€â”€ test_pos_tagging.py
+â”‚   â”œâ”€â”€ test_sentence_tokenization.py
+â”‚   â”œâ”€â”€ test_stemming.py
+â”‚   â”œâ”€â”€ test_stopwords.py
+â”‚   â”œâ”€â”€ test_tokenization.py
+â”‚   â””â”€â”€ test_vectorization.py
+â”‚
+â”œâ”€â”€ .gitignore
+â”œâ”€â”€ LICENSE
+â”œâ”€â”€ README.md
+â”œâ”€â”€ pyproject.toml
+â””â”€â”€ requirements.txt
 ```
 
 ## Requirements
@@ -74,28 +77,21 @@ nlp-toolkit/
 
 ## Installation
 
-### 1. Clone the repository
+### 1. Install from PyPI (Recommended)
+
+Install the latest published version using pip:
 
 ```bash
-git clone https://github.com/dxmohammad/nlp-toolkit.git
-cd nlp-toolkit
+pip install dxmohammad-nlp-toolkit
 ```
 
-### 2. Install the package
-
-```bash
-pip install .
-```
-
-This installs the toolkit and its required Python dependencies.
-
-### 3. Download the spaCy English model
+### 2. Download the spaCy English model
 
 ```bash
 python -m spacy download en_core_web_sm
 ```
 
-### 4. Download NLTK resources
+### 3. Download NLTK resources
 
 Some modules require additional NLTK language resources.
 
@@ -110,6 +106,16 @@ nltk.download("averaged_perceptron_tagger_eng")
 ```
 
 These resources are required by the relevant tokenization, stopword removal, and POS tagging modules.
+
+### 4. Install from source (Development)
+
+If you want to access or modify the source code:
+
+```bash
+git clone https://github.com/dxmohammad/nlp-toolkit.git
+cd nlp-toolkit
+pip install .
+```
 
 ## Usage
 
@@ -299,9 +305,9 @@ finally {
 
 ## Project Status
 
-The initial implementation of the toolkit is complete.
+Version `0.1.0` has been successfully published on PyPI.
 
-The project has been organized as an installable Python package, with:
+The initial implementation of the toolkit is complete, with:
 
 - 11 functional NLP modules.
 - 12 individual test files.
@@ -309,9 +315,16 @@ The project has been organized as an installable Python package, with:
 - Cached spaCy model loading.
 - Package configuration using `pyproject.toml`.
 - Wheel and source distribution builds.
-- Successful local installation testing in an independent Python environment.
+- Successful installation testing in an independent Python environment.
+- Successful publication and installation testing through PyPI and TestPyPI.
 
-The package has not yet been published on PyPI.
+**Current PyPI Version:** `0.1.0`
+
+**Installation:**
+
+```bash
+pip install dxmohammad-nlp-toolkit
+```
 
 ## Future Improvements
 
@@ -319,7 +332,7 @@ The package has not yet been published on PyPI.
 - Add more text preprocessing techniques.
 - Improve pipeline flexibility.
 - Expand automated test coverage.
-- Publish the package on PyPI.
+- Add automated testing using GitHub Actions.
 
 ## License
 
@@ -332,3 +345,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 GitHub: [@dxmohammad](https://github.com/dxmohammad)
 
 Project Repository: [nlp-toolkit](https://github.com/dxmohammad/nlp-toolkit)
+
+**PyPI:** [dxmohammad-nlp-toolkit](https://pypi.org/project/dxmohammad-nlp-toolkit/)
