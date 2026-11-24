@@ -1,6 +1,8 @@
 # NLP Toolkit
 
-A Python toolkit for Natural Language Processing (NLP), providing reusable functions for common text preprocessing and analysis tasks.
+A Python toolkit for Natural Language Processing (NLP), providing reusable functions for common text preprocessing, linguistic analysis, and text vectorization tasks.
+
+The project is designed with a modular structure, allowing developers to use individual NLP functions or combine them into a complete text-processing pipeline.
 
 ## Features
 
@@ -23,10 +25,12 @@ The toolkit currently includes 11 modules:
 ## Project Structure
 
 ```text
-nlp_tokens/
+nlp-toolkit/
 │
 ├── nlp_toolkit/
 │   ├── __init__.py
+│   ├── _nltk.py
+│   ├── _spacy.py
 │   ├── cleaning.py
 │   ├── normalization.py
 │   ├── tokenization.py
@@ -41,23 +45,28 @@ nlp_tokens/
 │
 ├── tests/
 │   ├── test_cleaning.py
-│   ├── test_normalization.py
-│   ├── test_tokenization.py
-│   ├── test_stopwords.py
-│   ├── test_stemming.py
 │   ├── test_lemmatization.py
-│   ├── test_pos_tagging.py
 │   ├── test_ner.py
+│   ├── test_nlp_pipeline.py
+│   ├── test_nltk_resources.py
+│   ├── test_normalization.py
+│   ├── test_pos_tagging.py
 │   ├── test_sentence_tokenization.py
-│   ├── test_vectorization.py
-│   └── test_nlp_pipeline.py
+│   ├── test_stemming.py
+│   ├── test_stopwords.py
+│   ├── test_tokenization.py
+│   └── test_vectorization.py
 │
-└── README.md
+├── .gitignore
+├── LICENSE
+├── README.md
+├── pyproject.toml
+└── requirements.txt
 ```
 
 ## Requirements
 
-- Python 3.10 or later
+- Python 3.10 or later.
 - NLTK
 - spaCy
 - scikit-learn
@@ -65,26 +74,42 @@ nlp_tokens/
 
 ## Installation
 
-Clone the repository:
+### 1. Clone the repository
 
 ```bash
-git clone git clone https://github.com/dxmohammad/nlp-toolkit.git
+git clone https://github.com/dxmohammad/nlp-toolkit.git
 cd nlp-toolkit
 ```
 
-Install the required libraries:
+### 2. Install the package
 
 ```bash
-pip install nltk spacy scikit-learn scipy
+pip install .
 ```
 
-Download the spaCy English model:
+This installs the toolkit and its required Python dependencies.
+
+### 3. Download the spaCy English model
 
 ```bash
 python -m spacy download en_core_web_sm
 ```
 
-Some NLTK modules require additional language resources. Download the resources required by the relevant modules before using them.
+### 4. Download NLTK resources
+
+Some modules require additional NLTK language resources.
+
+Download the required resources using:
+
+```python
+import nltk
+
+nltk.download("punkt_tab")
+nltk.download("stopwords")
+nltk.download("averaged_perceptron_tagger_eng")
+```
+
+These resources are required by the relevant tokenization, stopword removal, and POS tagging modules.
 
 ## Usage
 
@@ -189,7 +214,7 @@ print(result)
 
 ### 10. Text Vectorization
 
-**Bag of Words:**
+**Bag of Words**
 
 ```python
 from nlp_toolkit.vectorization import bag_of_words
@@ -205,7 +230,7 @@ print(matrix.toarray())
 print(vocabulary)
 ```
 
-**TF-IDF:**
+**TF-IDF**
 
 ```python
 from nlp_toolkit.vectorization import tfidf_vectorization
@@ -236,7 +261,9 @@ for key, value in result.items():
 
 ## Testing
 
-Run all tests from the project root directory using PowerShell:
+The project includes 12 individual test files.
+
+To run all tests from the project root directory using PowerShell:
 
 ```powershell
 $python = "python"
@@ -260,6 +287,7 @@ try {
 finally {
     Remove-Item Env:PYTHONPATH -ErrorAction SilentlyContinue
 }
+```
 
 ## Technologies Used
 
@@ -273,16 +301,34 @@ finally {
 
 The initial implementation of the toolkit is complete.
 
-All 11 individual test files have passed after organizing the project into a Python package.
+The project has been organized as an installable Python package, with:
+
+- 11 functional NLP modules.
+- 12 individual test files.
+- Modular NLTK resource management.
+- Cached spaCy model loading.
+- Package configuration using `pyproject.toml`.
+- Wheel and source distribution builds.
+- Successful local installation testing in an independent Python environment.
+
+The package has not yet been published on PyPI.
 
 ## Future Improvements
 
 - Expand language support.
 - Add more text preprocessing techniques.
 - Improve pipeline flexibility.
-- Add more automated tests.
-- Prepare the toolkit for package distribution.
+- Expand automated test coverage.
+- Publish the package on PyPI.
 
 ## License
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Author
+
+**Mohammad**
+
+GitHub: [@dxmohammad](https://github.com/dxmohammad)
+
+Project Repository: [nlp-toolkit](https://github.com/dxmohammad/nlp-toolkit)
