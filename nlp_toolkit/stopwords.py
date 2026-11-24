@@ -1,4 +1,4 @@
-
+from ._nltk import ensure_nltk_resource
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
@@ -19,7 +19,7 @@ def remove_stopwords(
 
     Raises:
         TypeError: If input types are invalid.
-        LookupError: If stopwords data or language is unavailable.
+        LookupError: If required NLTK resources are unavailable.
     """
 
     if not isinstance(text, str):
@@ -27,6 +27,9 @@ def remove_stopwords(
 
     if not isinstance(language, str):
         raise TypeError("Language must be a string.")
+
+    ensure_nltk_resource("stopwords")
+    ensure_nltk_resource("punkt_tab")
 
     try:
         stop_words = set(stopwords.words(language))

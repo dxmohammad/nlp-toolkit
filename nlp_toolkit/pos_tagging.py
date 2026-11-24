@@ -1,19 +1,15 @@
-
 from nltk import pos_tag
 from nltk.tokenize import word_tokenize
+from ._nltk import ensure_nltk_resource
 
 
 def get_pos_tags(text: str) -> list[tuple[str, str]]:
-    """
-    Identify the grammatical category of each word
-    using NLTK POS Tagging.
-    """
-
     if not isinstance(text, str):
         raise TypeError("Input must be a string.")
 
+    ensure_nltk_resource("punkt_tab")
+    ensure_nltk_resource("averaged_perceptron_tagger_eng")
+
     tokens = word_tokenize(text)
 
-    tagged_words = pos_tag(tokens)
-
-    return tagged_words
+    return pos_tag(tokens)

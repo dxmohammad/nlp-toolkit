@@ -1,22 +1,11 @@
-
-import nltk
 from nltk.tokenize import word_tokenize
+from ._nltk import ensure_nltk_resource
 
 
 def tokenize_text(text: str) -> list[str]:
-    """
-    Split text into individual tokens.
-
-    Args:
-        text: Input text.
-
-    Returns:
-        A list of tokens.
-    """
-
     if not isinstance(text, str):
         raise TypeError("Input must be a string.")
 
-    tokens = word_tokenize(text)
+    ensure_nltk_resource("punkt_tab")
 
-    return tokens
+    return word_tokenize(text)
