@@ -1,20 +1,14 @@
-
 import spacy
-
-nlp = spacy.load("en_core_web_sm")
+from ._spacy import get_nlp
 
 
 def extract_entities(text: str) -> list[dict[str, str]]:
-    """
-    Extract named entities from text using spaCy.
-    """
-
     if not isinstance(text, str):
         raise TypeError("Input must be a string.")
 
-    doc = nlp(text)
+    doc = get_nlp()(text)
 
-    entities = [
+    return [
         {
             "text": entity.text,
             "label": entity.label_,
@@ -22,5 +16,3 @@ def extract_entities(text: str) -> list[dict[str, str]]:
         }
         for entity in doc.ents
     ]
-
-    return entities
