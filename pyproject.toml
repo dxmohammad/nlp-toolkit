@@ -5,12 +5,26 @@ build-backend = "setuptools.build_meta"
 
 
 [project]
-name = "nlp-toolkit"
+name = "dxmohammad-nlp-toolkit"
 version = "0.1.0"
-description = "A Python toolkit for Natural Language Processing tasks."
+description = "A modular Python toolkit for text preprocessing, linguistic analysis, and text vectorization."
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
+
+authors = [
+    { name = "Mohammad" }
+]
+
+keywords = [
+    "nlp",
+    "natural-language-processing",
+    "text-processing",
+    "tokenization",
+    "lemmatization",
+    "stemming",
+    "text-vectorization"
+]
 
 dependencies = [
     "nltk>=3.8",
@@ -26,6 +40,11 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Operating System :: OS Independent"
 ]
+
+[project.urls]
+Homepage = "https://github.com/dxmohammad/nlp-toolkit"
+Repository = "https://github.com/dxmohammad/nlp-toolkit"
+Issues = "https://github.com/dxmohammad/nlp-toolkit/issues"
 
 
 [tool.setuptools.packages.find]
